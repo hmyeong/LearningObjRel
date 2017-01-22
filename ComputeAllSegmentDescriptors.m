@@ -98,9 +98,10 @@ for i = range
         
         if ~isempty(descInds)
             descs = cell(length(superPixInd),1);
-            if matlabpool('size') == 0
-                matlabpool;
-                poolstarted = 1;
+            if exist('parpool','file')
+                if isempty(gcp('nocreate'))
+                    parpool;
+                end;
             end;
             
             parfor j = 1:length(superPixInd)
@@ -152,8 +153,8 @@ end;
 
 close(pfig);
 
-if poolstarted
-    matlabpool close;
+if exist('parpool','file')
+    if ~isempty(gcp('nocreate')), delete(gcp('nocreate')); end;
 end;
 
 return;

@@ -1,4 +1,4 @@
-HOME = 'E:\Works';
+HOME = '.\data';
 dbName = 'SampleDataSet';
 testName = 'testDP';
 testSetName = 'TestSet1';
@@ -59,7 +59,7 @@ fprintf('\n');
 fprintf('**************************************************\n');
 fprintf('****** Parsing image\n');
 fprintf('**************************************************\n');
-% DataTest(SPdata,SPparam,LORparam);
+DataTest(SPdata,SPparam,LORparam);
 % NonsmoothPairwiseTest(SPdata,SPparam,LORparam);
 DataNonsmoothPairwiseTest(SPdata,SPparam,LORparam);
 LORparam.beta = 0.5;
